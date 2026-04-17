@@ -18,7 +18,7 @@ import com.edutech.vehicleservicesystem.repository.VehicleRepository;
 @Service
 public class ServiceRequestService {
 
-    @Autowired
+    @Autowiredr
     private ServiceRequestRepository serviceRequestRepository;
 
     @Autowired
