@@ -3,6 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "VehicleservicesystemApplication",
+      "request": "launch",
+      "mainClass": "com.edutech.vehicleservicesystem.VehicleservicesystemApplication",
+      "projectName": "vehicleservicesystem"
+    },
+    {
       "name": "ng serve",
       "type": "chrome",
       "request": "launch",
