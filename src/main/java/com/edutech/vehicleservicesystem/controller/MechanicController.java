@@ -1,6 +1,5 @@
 package com.edutech.vehicleservicesystem.controller;
 
-import com.edutech.vehicleservicesystem.entity.Mechanic;
 import com.edutech.vehicleservicesystem.entity.ServiceRequest;
 import com.edutech.vehicleservicesystem.service.ServiceRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +16,10 @@ public class MechanicController {
     @Autowired
     private ServiceRequestService serviceRequestService;
 
-    // GET /api/mechanic/services?mechanicId=1
+    // GET /api/mechanic/services?username=john
     @GetMapping("/services")
-    public ResponseEntity<List<ServiceRequest>> getAssignedServices(@RequestParam Long mechanicId) {
-
-        Mechanic mechanic = new Mechanic();
-        mechanic.setId(mechanicId);  // assuming ID setter exists
-
-        return ResponseEntity.ok(serviceRequestService.getRequestsByMechanic(mechanic));
+    public ResponseEntity<List<ServiceRequest>> getAssignedServices(@RequestParam String username) {
+        return ResponseEntity.ok(serviceRequestService.getMechanicServices(username));
     }
 
     // PUT /api/mechanic/update/{serviceId}?status=IN_PROGRESS
