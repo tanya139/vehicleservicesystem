@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.edutech.vehicleservicesystem.entity.User;
@@ -16,23 +17,23 @@ public class VehicleService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
-    public Vehicle addVehicle(Vehicle vehicle) {
+    public Vehicle addVehicle(@NonNull Vehicle vehicle) {
         return vehicleRepository.save(vehicle);
     }
 
-    public List<Vehicle> getVehiclesByOwner(User owner) {
+    public List<Vehicle> getVehiclesByOwner(@NonNull User owner) {
         return vehicleRepository.findByOwner(owner);
     }
 
-    public Optional<Vehicle> getVehicleById(Long id) {
+    public Optional<Vehicle> getVehicleById(@NonNull Long id) {
         return vehicleRepository.findById(id);
     }
 
-    public Vehicle updateVehicle(Vehicle vehicle) {
+    public Vehicle updateVehicle(@NonNull Vehicle vehicle) {
         return vehicleRepository.save(vehicle);
     }
 
-    public void deleteVehicle(Long id) {
+    public void deleteVehicle(@NonNull Long id) {
         vehicleRepository.deleteById(id);
     }
 }

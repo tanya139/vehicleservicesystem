@@ -42,13 +42,10 @@ public class OwnerController {
     // POST /api/owner/service
     @PostMapping("/service")
     public ResponseEntity<?> requestService(@RequestBody ServiceRequest request,
+            @RequestParam Long vehicleId,
             Authentication authentication) {
         String username = authentication.getName();
-        User owner = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        request.setOwner(owner);
-        request.setStatus("REQUESTED");
-        ServiceRequest saved = serviceRequestService.createRequest(request);
+        ServiceRequest saved = serviceRequestService.createRequest(request, vehicleId, username);
         return ResponseEntity.ok(saved);
     }
 
@@ -56,9 +53,7 @@ public class OwnerController {
     @GetMapping("/services")
     public ResponseEntity<List<ServiceRequest>> getServiceHistory(Authentication authentication) {
         String username = authentication.getName();
-        User owner = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        List<ServiceRequest> history = serviceRequestService.getRequestsByOwner(owner);
+        List<ServiceRequest> history = serviceRequestService.getOwnerServices(username);
         return ResponseEntity.ok(history);
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.edutech.vehicleservicesystem.entity.Mechanic;
@@ -15,7 +16,7 @@ public class MechanicService {
     @Autowired
     private MechanicRepository mechanicRepository;
 
-    public Mechanic addMechanic(Mechanic mechanic) {
+    public Mechanic addMechanic(@NonNull Mechanic mechanic) {
         return mechanicRepository.save(mechanic);
     }
 
@@ -23,7 +24,7 @@ public class MechanicService {
         return mechanicRepository.findAll();
     }
 
-    public Optional<Mechanic> getMechanicById(Long id) {
+    public Optional<Mechanic> getMechanicById(@NonNull Long id) {
         return mechanicRepository.findById(id);
     }
 }

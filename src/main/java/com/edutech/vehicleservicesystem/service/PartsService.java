@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.edutech.vehicleservicesystem.entity.Parts;
@@ -15,7 +16,7 @@ public class PartsService {
     @Autowired
     private PartsRepository partsRepository;
 
-    public Parts addPart(Parts part) {
+    public Parts addPart(@NonNull Parts part) {
         return partsRepository.save(part);
     }
 
@@ -23,15 +24,15 @@ public class PartsService {
         return partsRepository.findAll();
     }
 
-    public Optional<Parts> getPartById(Long id) {
+    public Optional<Parts> getPartById(@NonNull Long id) {
         return partsRepository.findById(id);
     }
 
-    public Parts updatePart(Parts part) {
+    public Parts updatePart(@NonNull Parts part) {
         return partsRepository.save(part);
     }
 
-    public void deletePart(Long id) {
+    public void deletePart(@NonNull Long id) {
         partsRepository.deleteById(id);
     }
 }
