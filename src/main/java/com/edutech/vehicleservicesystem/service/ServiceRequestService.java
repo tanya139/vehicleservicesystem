@@ -1,14 +1,18 @@
 package com.edutech.vehicleservicesystem.service;
 
-import com.edutech.vehicleservicesystem.entity.Mechanic;
-import com.edutech.vehicleservicesystem.entity.ServiceRequest;
-import com.edutech.vehicleservicesystem.entity.User;
-import com.edutech.vehicleservicesystem.repository.ServiceRequestRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.edutech.vehicleservicesystem.entity.Mechanic;
+import com.edutech.vehicleservicesystem.entity.ServiceRequest;
+import com.edutech.vehicleservicesystem.entity.User;
+import com.edutech.vehicleservicesystem.entity.Vehicle;
+import com.edutech.vehicleservicesystem.repository.MechanicRepository;
+import com.edutech.vehicleservicesystem.repository.ServiceRequestRepository;
+import com.edutech.vehicleservicesystem.repository.UserRepository;
+import com.edutech.vehicleservicesystem.repository.VehicleRepository;
 
 @Service
 public class ServiceRequestService {
@@ -16,47 +20,58 @@ public class ServiceRequestService {
     @Autowired
     private ServiceRequestRepository serviceRequestRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private VehicleRepository vehicleRepository;
+
+    @Autowired
+    private MechanicRepository mechanicRepository;
+
+    public ServiceRequest createRequest(ServiceRequest request, Long vehicleId, String username) {
+        User owner = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        Vehicle vehicle = vehicleRepository.findById(vehicleId)
+                .orElseThrow(() -> new RuntimeException("Vehicle not found"));
+        request.setOwner(owner);
+        request.setVehicle(vehicle);
+        request.setStatus("REQUESTED");
+        return serviceRequestRepository.save(request);
+    }
+
     public List<ServiceRequest> getAllRequests() {
         return serviceRequestRepository.findAll();
     }
 
-    public ServiceRequest saveRequest(ServiceRequest request) {
+    public ServiceRequest assignMechanic(Long serviceId, Long mechanicId) {
+        ServiceRequest request = serviceRequestRepository.findById(serviceId)
+                .orElseThrow(() -> new RuntimeException("Service request not found"));
+        Mechanic mechanic = mechanicRepository.findById(mechanicId)
+                .orElseThrow(() -> new RuntimeException("Mechanic not found"));
+        request.setMechanic(mechanic);
+        request.setStatus("ASSIGNED");
         return serviceRequestRepository.save(request);
     }
 
-    public List<ServiceRequest> getRequestsByMechanic(Mechanic mechanic) {
-        return serviceRequestRepository.findByMechanic(mechanic);
-    }
-
-    public List<ServiceRequest> getRequestsByOwner(User owner) {
+    public List<ServiceRequest> getOwnerServices(String username) {
+        User owner = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
         return serviceRequestRepository.findByOwner(owner);
     }
 
-    public ServiceRequest assignMechanic(Long requestId, Mechanic mechanic) {
-        Optional<ServiceRequest> optional = serviceRequestRepository.findById(requestId);
-        if (optional.isPresent()) {
-            ServiceRequest request = optional.get();
-            request.setMechanic(mechanic);
-            return serviceRequestRepository.save(request);
-        }
-        return null;
+    public List<ServiceRequest> getMechanicServices(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        Mechanic mechanic = mechanicRepository.findByUser(user)
+                .orElseThrow(() -> new RuntimeException("Mechanic not found"));
+        return serviceRequestRepository.findByMechanic(mechanic);
     }
 
-    public ServiceRequest updateStatus(Long requestId, String status) {
-        Optional<ServiceRequest> optional = serviceRequestRepository.findById(requestId);
-        if (optional.isPresent()) {
-            ServiceRequest request = optional.get();
-            request.setStatus(status);
-            return serviceRequestRepository.save(request);
-        }
-        return null;
-    }
-
-    public ServiceRequest createRequest(ServiceRequest request, Long vehicleId, String ownerEmail) {
+    public ServiceRequest updateStatus(Long serviceId, String status) {
+        ServiceRequest request = serviceRequestRepository.findById(serviceId)
+                .orElseThrow(() -> new RuntimeException("Service request not found"));
+        request.setStatus(status);
         return serviceRequestRepository.save(request);
-    }
-
-    public List<ServiceRequest> getOwnerServices(String email) {
-        return serviceRequestRepository.findAll();
     }
 }

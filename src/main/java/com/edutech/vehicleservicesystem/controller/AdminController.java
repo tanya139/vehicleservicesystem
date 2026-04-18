@@ -43,16 +43,14 @@ public class AdminController {
     @PutMapping("/assign/{serviceId}")
     public ResponseEntity<?> assignMechanic(@PathVariable Long serviceId,
             @RequestParam Long mechanicId) {
-        Mechanic mechanic = mechanicService.getMechanicById(mechanicId)
-                .orElseThrow(() -> new RuntimeException("Mechanic not found"));
-        ServiceRequest updated = serviceRequestService.assignMechanic(serviceId, mechanic);
+        ServiceRequest updated = serviceRequestService.assignMechanic(serviceId, mechanicId);
         return ResponseEntity.ok(updated);
     }
 
     // POST /api/admin/parts
     @PostMapping("/parts")
     public ResponseEntity<?> addParts(@RequestBody Parts parts) {
-        Parts saved = partsService.addPart(parts);
+        Parts saved = partsService.addParts(parts);
         return ResponseEntity.ok(saved);
     }
 }

@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.edutech.vehicleservicesystem.entity.User;
 import com.edutech.vehicleservicesystem.entity.Vehicle;
+import com.edutech.vehicleservicesystem.repository.UserRepository;
 import com.edutech.vehicleservicesystem.repository.VehicleRepository;
 
 @Service
@@ -17,23 +17,30 @@ public class VehicleService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
-    public Vehicle addVehicle(@NonNull Vehicle vehicle) {
+    @Autowired
+    private UserRepository userRepository;
+
+    // Called by OwnerController
+    public Vehicle addVehicle(Vehicle vehicle, String username) {
+        User owner = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        vehicle.setOwner(owner);
         return vehicleRepository.save(vehicle);
     }
 
-    public List<Vehicle> getVehiclesByOwner(@NonNull User owner) {
+    public List<Vehicle> getVehiclesByOwner(User owner) {
         return vehicleRepository.findByOwner(owner);
     }
 
-    public Optional<Vehicle> getVehicleById(@NonNull Long id) {
+    public Optional<Vehicle> getVehicleById(Long id) {
         return vehicleRepository.findById(id);
     }
 
-    public Vehicle updateVehicle(@NonNull Vehicle vehicle) {
+    public Vehicle updateVehicle(Vehicle vehicle) {
         return vehicleRepository.save(vehicle);
     }
 
-    public void deleteVehicle(@NonNull Long id) {
+    public void deleteVehicle(Long id) {
         vehicleRepository.deleteById(id);
     }
 }

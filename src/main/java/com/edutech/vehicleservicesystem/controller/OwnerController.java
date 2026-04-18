@@ -1,9 +1,7 @@
 package com.edutech.vehicleservicesystem.controller;
 
 import com.edutech.vehicleservicesystem.entity.ServiceRequest;
-import com.edutech.vehicleservicesystem.entity.User;
 import com.edutech.vehicleservicesystem.entity.Vehicle;
-import com.edutech.vehicleservicesystem.repository.UserRepository;
 import com.edutech.vehicleservicesystem.service.ServiceRequestService;
 import com.edutech.vehicleservicesystem.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,22 +22,16 @@ public class OwnerController {
     @Autowired
     private ServiceRequestService serviceRequestService;
 
-    @Autowired
-    private UserRepository userRepository;
-
     // POST /api/owner/vehicle
     @PostMapping("/vehicle")
     public ResponseEntity<?> addVehicle(@RequestBody Vehicle vehicle,
             Authentication authentication) {
         String username = authentication.getName();
-        User owner = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        vehicle.setOwner(owner);
-        Vehicle saved = vehicleService.addVehicle(vehicle);
+        Vehicle saved = vehicleService.addVehicle(vehicle, username);
         return ResponseEntity.ok(saved);
     }
 
-    // POST /api/owner/service
+    // POST /api/owner/service?vehicleId=1
     @PostMapping("/service")
     public ResponseEntity<?> requestService(@RequestBody ServiceRequest request,
             @RequestParam Long vehicleId,

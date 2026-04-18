@@ -20,6 +20,10 @@ public class PartsService {
         return partsRepository.save(part);
     }
 
+    public Parts addParts(Parts parts) {
+        return partsRepository.save(parts);
+    }
+
     public List<Parts> getAllParts() {
         return partsRepository.findAll();
     }
