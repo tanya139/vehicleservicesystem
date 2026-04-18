@@ -1,0 +1,23 @@
+<div style="max-width: 700px; margin: 50px auto; padding: 20px;">
+  <h2>My Service History</h2>
+
+  <table *ngIf="serviceHistory.length"
+    style="width: 100%; border-collapse: collapse;">
+    <tr style="background: #007bff; color: white;">
+      <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
+      <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+    </tr>
+    <tr *ngFor="let s of serviceHistory">
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ s.id }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ s.description }}</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">{{ s.status }}</td>
+    </tr>
+  </table>
+
+  <p *ngIf="!serviceHistory.length">No service history found.</p>
+
+  <br>
+  <a routerLink="/vehicle">Back to Vehicles</a> |
+  <a routerLink="/service-request" style="margin-left: 10px;">Request Service</a>
+</div>

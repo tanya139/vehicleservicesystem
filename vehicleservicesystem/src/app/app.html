@@ -1,0 +1,41 @@
+<nav style="background: #343a40; padding: 10px 20px;
+            display: flex; gap: 20px; align-items: center;">
+
+  <ng-container *ngIf="auth.isLoggedIn()">
+
+    <span style="color: white; margin-right: 10px;">
+      Welcome, {{ auth.getUsername() }}!
+    </span>
+
+    <ng-container *ngIf="auth.getRole() === 'OWNER'">
+      <a routerLink="/vehicle"
+        style="color: white; text-decoration: none;">My Vehicles</a>
+      <a routerLink="/service-request"
+        style="color: white; text-decoration: none;">Request Service</a>
+      <a routerLink="/services"
+        style="color: white; text-decoration: none;">Service History</a>
+    </ng-container>
+
+    <ng-container *ngIf="auth.getRole() === 'ADMIN'">
+      <a routerLink="/admin"
+        style="color: white; text-decoration: none;">Admin Dashboard</a>
+    </ng-container>
+
+    <ng-container *ngIf="auth.getRole() === 'MECHANIC'">
+      <a routerLink="/mechanic"
+        style="color: white; text-decoration: none;">My Services</a>
+    </ng-container>
+
+    <button
+      (click)="logout()"
+      style="margin-left: auto; padding: 6px 14px;
+             background: #dc3545; color: white;
+             border: none; cursor: pointer;">
+      Logout
+    </button>
+
+  </ng-container>
+
+</nav>
+
+<router-outlet></router-outlet>
