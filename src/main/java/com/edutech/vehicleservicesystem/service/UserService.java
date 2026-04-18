@@ -1,6 +1,6 @@
 package com.edutech.vehicleservicesystem.service;
 
-import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +28,11 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
 
+        // ✅ FINAL FIX (clean + correct role mapping)
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 user.getPassword(),
-                Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
+                List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().toUpperCase()))
         );
     }
 
