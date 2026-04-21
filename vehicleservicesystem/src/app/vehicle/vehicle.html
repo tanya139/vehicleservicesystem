@@ -1,0 +1,30 @@
+<div style="max-width: 400px; margin: 100px auto; padding: 20px;">
+  <h2>Add Vehicle</h2>
+
+  <div style="margin-bottom: 10px;">
+    <input
+      [(ngModel)]="vehicle.model"
+      placeholder="Model (e.g. Honda City)"
+      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <input
+      [(ngModel)]="vehicle.number"
+      placeholder="Number (e.g. TN01AB1234)"
+      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+  </div>
+
+  <button
+    (click)="addVehicle()"
+    style="width: 100%; padding: 10px; background: #007bff;
+           color: white; border: none; cursor: pointer;">
+    Add Vehicle
+  </button>
+
+  <p style="color: green;">{{ message }}</p>
+
+  <br>
+  <a routerLink="/service-request">Request a Service</a> |
+  <a routerLink="/services" style="margin-left: 10px;">View Service History</a>
+</div>

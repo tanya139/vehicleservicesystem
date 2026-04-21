@@ -1,0 +1,32 @@
+<div style="max-width: 400px; margin: 100px auto; padding: 20px;">
+  <h2>Request Service</h2>
+
+  <div style="margin-bottom: 10px;">
+    <input
+      [(ngModel)]="vehicleId"
+      placeholder="Vehicle ID"
+      type="number"
+      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <textarea
+      [(ngModel)]="request.description"
+      placeholder="Describe the issue..."
+      style="width: 100%; padding: 8px; height: 100px;">
+    </textarea>
+  </div>
+
+  <button
+    (click)="submitRequest()"
+    style="width: 100%; padding: 10px; background: #007bff;
+           color: white; border: none; cursor: pointer;">
+    Submit Request
+  </button>
+
+  <p style="color: green;">{{ message }}</p>
+
+  <br>
+  <a routerLink="/vehicle">Back to Vehicles</a> |
+  <a routerLink="/services" style="margin-left: 10px;">View Service History</a>
+</div>

@@ -1,0 +1,29 @@
+<div style="max-width: 400px; margin: 100px auto; padding: 20px;">
+  <h2>Login</h2>
+
+  <div style="margin-bottom: 10px;">
+    <input
+      [(ngModel)]="credentials.username"
+      placeholder="Username"
+      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <input
+      [(ngModel)]="credentials.password"
+      placeholder="Password"
+      type="password"
+      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+  </div>
+
+  <button
+    (click)="login()"
+    style="width: 100%; padding: 10px; background: #007bff;
+           color: white; border: none; cursor: pointer;">
+    Login
+  </button>
+
+  <p style="color: red;">{{ error }}</p>
+
+  <p>New user? <a routerLink="/register">Register here</a></p>
+</div>
