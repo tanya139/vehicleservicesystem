@@ -9,30 +9,33 @@
       style="width: 300px; padding: 8px;">
   </div>
 
-  <table *ngIf="requests.length"
-    style="width: 100%; border-collapse: collapse;">
-    <tr style="background: #007bff; color: white;">
-      <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
-    </tr>
-    <tr *ngFor="let r of requests">
-      <td style="padding: 10px; border: 1px solid #ddd;">{{ r.id }}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">{{ r.description }}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">{{ r.status }}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">
-        <button
-          (click)="assignMechanic(r.id)"
-          style="padding: 6px 12px; background: #28a745;
-                 color: white; border: none; cursor: pointer;">
-          Assign
-        </button>
-      </td>
-    </tr>
-  </table>
-
-  <p *ngIf="!requests.length">No service requests found.</p>
+  @if (requests.length > 0) {
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="background: #007bff; color: white;">
+        <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+      </tr>
+      @for (r of requests; track r.id) {
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ r.id }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ r.description }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ r.status }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">
+            <button
+              (click)="assignMechanic(r.id)"
+              style="padding: 6px 12px; background: #28a745;
+                     color: white; border: none; cursor: pointer;">
+              Assign
+            </button>
+          </td>
+        </tr>
+      }
+    </table>
+  } @else {
+    <p>No service requests found.</p>
+  }
 
   <p style="color: green;">{{ message }}</p>
 </div>

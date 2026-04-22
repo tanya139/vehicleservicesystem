@@ -1,36 +1,39 @@
 <div style="max-width: 800px; margin: 50px auto; padding: 20px;">
   <h2>My Assigned Services</h2>
 
-  <table *ngIf="services.length"
-    style="width: 100%; border-collapse: collapse;">
-    <tr style="background: #007bff; color: white;">
-      <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
-      <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
-    </tr>
-    <tr *ngFor="let s of services">
-      <td style="padding: 10px; border: 1px solid #ddd;">{{ s.id }}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">{{ s.description }}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">{{ s.status }}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">
-        <button
-          (click)="updateStatus(s.id, 'IN_PROGRESS')"
-          style="padding: 6px 12px; background: #ffc107;
-                 color: black; border: none; cursor: pointer; margin-right: 5px;">
-          Start
-        </button>
-        <button
-          (click)="updateStatus(s.id, 'COMPLETED')"
-          style="padding: 6px 12px; background: #28a745;
-                 color: white; border: none; cursor: pointer;">
-          Complete
-        </button>
-      </td>
-    </tr>
-  </table>
-
-  <p *ngIf="!services.length">No assigned services found.</p>
+  @if (services.length > 0) {
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="background: #007bff; color: white;">
+        <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+      </tr>
+      @for (s of services; track s.id) {
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ s.id }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ s.description }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ s.status }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">
+            <button
+              (click)="updateStatus(s.id, 'IN_PROGRESS')"
+              style="padding: 6px 12px; background: #ffc107;
+                     color: black; border: none; cursor: pointer; margin-right: 5px;">
+              Start
+            </button>
+            <button
+              (click)="updateStatus(s.id, 'COMPLETED')"
+              style="padding: 6px 12px; background: #28a745;
+                     color: white; border: none; cursor: pointer;">
+              Complete
+            </button>
+          </td>
+        </tr>
+      }
+    </table>
+  } @else {
+    <p>No assigned services found.</p>
+  }
 
   <p style="color: green;">{{ message }}</p>
 </div>

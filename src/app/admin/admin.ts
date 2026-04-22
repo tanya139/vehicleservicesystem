@@ -23,7 +23,9 @@ export class AdminComponent implements OnInit {
 
   loadRequests() {
     this.http.get('/api/admin/requests').subscribe({
-      next: (data: any) => this.requests = data,
+      next: (data: any) => {
+        this.requests = [...data];
+      },
       error: () => console.error('Failed to load requests')
     });
   }

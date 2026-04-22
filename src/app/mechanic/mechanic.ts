@@ -21,7 +21,9 @@ export class MechanicComponent implements OnInit {
 
   loadServices() {
     this.http.get('/api/mechanic/services').subscribe({
-      next: (data: any) => this.services = data,
+      next: (data: any) => {
+        this.services = [...data];
+      },
       error: () => console.error('Failed to load assigned services')
     });
   }
