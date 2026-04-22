@@ -49,12 +49,20 @@ public class AuthController {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             user.getUsername(), user.getPassword()));
+
             UserDetails userDetails = userService.loadUserByUsername(user.getUsername());
-            String token = jwtUtil.generateToken(userDetails.getUsername(), user.getRole());
+
+            User dbUser = userService.findByUsername(user.getUsername())
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            String token = jwtUtil.generateToken(userDetails.getUsername(), dbUser.getRole());
+
             Map<String, String> response = new HashMap<>();
             response.put("token", token);
             response.put("username", userDetails.getUsername());
+            response.put("role", dbUser.getRole());
             return ResponseEntity.ok(response);
+
         } catch (Exception e) {
             Map<String, String> error = new HashMap<>();
             error.put("error", "Invalid username or password");
