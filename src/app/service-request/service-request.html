@@ -1,45 +1,43 @@
-<div style="max-width: 400px; margin: 100px auto; padding: 30px;
-            border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <h2 style="margin-bottom: 24px; text-align: center;">Request Service</h2>
+<div style="max-width: 520px; margin: 60px auto; padding: 20px;">
+  <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(202,97,128,0.1); border-top: 4px solid #9ED3DC;">
 
-  <div style="margin-bottom: 16px;">
-    <input
-      [(ngModel)]="vehicleId"
-      placeholder="Vehicle ID"
-      type="number"
-      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
-             border-radius: 6px; font-size: 15px; box-sizing: border-box;
-             outline: none;">
+    <h2 style="margin: 0 0 8px; color: #CA6180; font-size: 22px; font-weight: 700;">Request Service</h2>
+    <p style="margin: 0 0 28px; color: #888; font-size: 14px;">Tell us what your vehicle needs</p>
+
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Vehicle ID</label>
+      <input [(ngModel)]="vehicleId" placeholder="Enter your Vehicle ID" type="number"
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Describe the Issue</label>
+      <textarea [(ngModel)]="request.description" placeholder="e.g. Engine making noise when starting..."
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; height: 130px; resize: vertical; outline: none; font-family: inherit;"
+        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+      </textarea>
+    </div>
+
+    <button
+      (click)="submitRequest()"
+      style="width: 100%; padding: 14px; background: #CA6180;
+             color: white; border: none; border-radius: 8px;
+             font-size: 16px; font-weight: 700; cursor: pointer;
+             touch-action: manipulation; letter-spacing: 0.5px;"
+      onmouseover="this.style.background='#b5506e'"
+      onmouseout="this.style.background='#CA6180'"
+      onmousedown="this.style.transform='scale(0.98)'"
+      onmouseup="this.style.transform='scale(1)'">
+      Submit Request
+    </button>
+
+    <p style="color: #0F6E56; text-align: center; margin-top: 14px; font-weight: 600; font-size: 14px;">{{ message }}</p>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <a routerLink="/vehicle" style="color: #CA6180; font-weight: 600; text-decoration: none; font-size: 14px;">← Back to Vehicles</a>
+      <span style="color: #ccc; margin: 0 10px;">|</span>
+      <a routerLink="/services" style="color: #CA6180; font-weight: 600; text-decoration: none; font-size: 14px;">View History</a>
+    </div>
   </div>
-
-  <div style="margin-bottom: 16px;">
-    <textarea
-      [(ngModel)]="request.description"
-      placeholder="Describe the issue..."
-      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
-             border-radius: 6px; font-size: 15px; box-sizing: border-box;
-             height: 120px; resize: vertical; outline: none;">
-    </textarea>
-  </div>
-
-  <button
-    (click)="submitRequest()"
-    style="width: 100%; padding: 14px; background: #007bff;
-           color: white; border: none; border-radius: 6px;
-           font-size: 16px; font-weight: bold; cursor: pointer;
-           transition: background 0.2s; user-select: none;
-           -webkit-tap-highlight-color: transparent;
-           touch-action: manipulation;"
-    onmouseover="this.style.background='#0056b3'"
-    onmouseout="this.style.background='#007bff'"
-    onmousedown="this.style.background='#004094'"
-    onmouseup="this.style.background='#0056b3'">
-    Submit Request
-  </button>
-
-  <p style="color: green; text-align: center; margin-top: 12px;">{{ message }}</p>
-
-  <br>
-  <a routerLink="/vehicle">Back to Vehicles</a> |
-  <a routerLink="/services" style="margin-left: 10px;">View Service History</a>
 </div>

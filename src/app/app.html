@@ -1,36 +1,53 @@
-<nav style="background: #343a40; padding: 10px 20px;
-            display: flex; gap: 20px; align-items: center;">
+<nav style="background: #CA6180; padding: 0 24px; display: flex; align-items: center; height: 60px; box-shadow: 0 2px 8px rgba(202,97,128,0.3);">
+
+  <span style="color: white; font-weight: 600; font-size: 17px; letter-spacing: 0.5px; margin-right: auto;">
+    🔧 VehicleServ
+  </span>
 
   <ng-container *ngIf="auth.isLoggedIn()">
 
-    <span style="color: white; margin-right: 10px;">
+    <span style="color: #FEFD99; font-size: 14px; margin-right: 20px; font-weight: 500;">
       Welcome, {{ auth.getUsername() }}!
     </span>
 
     <ng-container *ngIf="auth.getRole() === 'OWNER'">
       <a routerLink="/vehicle"
-        style="color: white; text-decoration: none;">My Vehicles</a>
+        style="color: white; text-decoration: none; margin-right: 20px; font-size: 14px; padding: 6px 12px; border-radius: 6px; transition: background 0.2s;"
+        onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+        onmouseout="this.style.background='transparent'">My Vehicles</a>
       <a routerLink="/service-request"
-        style="color: white; text-decoration: none;">Request Service</a>
+        style="color: white; text-decoration: none; margin-right: 20px; font-size: 14px; padding: 6px 12px; border-radius: 6px;"
+        onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+        onmouseout="this.style.background='transparent'">Request Service</a>
       <a routerLink="/services"
-        style="color: white; text-decoration: none;">Service History</a>
+        style="color: white; text-decoration: none; margin-right: 20px; font-size: 14px; padding: 6px 12px; border-radius: 6px;"
+        onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+        onmouseout="this.style.background='transparent'">Service History</a>
     </ng-container>
 
     <ng-container *ngIf="auth.getRole() === 'ADMIN'">
       <a routerLink="/admin"
-        style="color: white; text-decoration: none;">Admin Dashboard</a>
+        style="color: white; text-decoration: none; margin-right: 20px; font-size: 14px; padding: 6px 12px; border-radius: 6px;"
+        onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+        onmouseout="this.style.background='transparent'">Admin Dashboard</a>
     </ng-container>
 
     <ng-container *ngIf="auth.getRole() === 'MECHANIC'">
       <a routerLink="/mechanic"
-        style="color: white; text-decoration: none;">My Services</a>
+        style="color: white; text-decoration: none; margin-right: 20px; font-size: 14px; padding: 6px 12px; border-radius: 6px;"
+        onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+        onmouseout="this.style.background='transparent'">My Services</a>
     </ng-container>
 
     <button
       (click)="logout()"
-      style="margin-left: auto; padding: 6px 14px;
-             background: #dc3545; color: white;
-             border: none; cursor: pointer;">
+      style="padding: 8px 18px; background: white; color: #CA6180;
+             border: none; border-radius: 6px; font-weight: 600;
+             font-size: 14px; cursor: pointer; touch-action: manipulation;"
+      onmouseover="this.style.background='#FEFD99'"
+      onmouseout="this.style.background='white'"
+      onmousedown="this.style.transform='scale(0.97)'"
+      onmouseup="this.style.transform='scale(1)'">
       Logout
     </button>
 

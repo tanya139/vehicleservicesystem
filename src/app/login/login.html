@@ -1,44 +1,56 @@
-<div style="max-width: 400px; margin: 100px auto; padding: 30px;
-            border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-  <h2 style="margin-bottom: 24px; text-align: center;">Login</h2>
+<div style="min-height: 100vh; background: #FCB7C7; display: flex; align-items: center; justify-content: center;">
+  <div style="background: white; max-width: 420px; width: 100%; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px rgba(202,97,128,0.15);">
 
-  <div style="margin-bottom: 16px;">
-    <input
-      [(ngModel)]="credentials.username"
-      placeholder="Username"
-      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
-             border-radius: 6px; font-size: 15px; box-sizing: border-box;
-             outline: none; transition: border 0.2s;">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div style="width: 56px; height: 56px; background: #CA6180; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+        <span style="font-size: 24px;">🔧</span>
+      </div>
+      <h2 style="margin: 0; color: #CA6180; font-size: 24px; font-weight: 700;">Welcome Back</h2>
+      <p style="margin: 6px 0 0; color: #888; font-size: 14px;">Sign in to your account</p>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Username</label>
+      <input
+        [(ngModel)]="credentials.username"
+        placeholder="Enter your username"
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7;
+               border-radius: 8px; font-size: 15px; box-sizing: border-box;
+               outline: none; transition: border 0.2s;"
+        onfocus="this.style.borderColor='#CA6180'"
+        onblur="this.style.borderColor='#FCB7C7'">
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Password</label>
+      <input
+        [(ngModel)]="credentials.password"
+        placeholder="Enter your password"
+        type="password"
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7;
+               border-radius: 8px; font-size: 15px; box-sizing: border-box;
+               outline: none; transition: border 0.2s;"
+        onfocus="this.style.borderColor='#CA6180'"
+        onblur="this.style.borderColor='#FCB7C7'">
+    </div>
+
+    <button
+      (click)="login()"
+      style="width: 100%; padding: 14px; background: #CA6180;
+             color: white; border: none; border-radius: 8px;
+             font-size: 16px; font-weight: 700; cursor: pointer;
+             touch-action: manipulation; letter-spacing: 0.5px;"
+      onmouseover="this.style.background='#b5506e'"
+      onmouseout="this.style.background='#CA6180'"
+      onmousedown="this.style.transform='scale(0.98)'"
+      onmouseup="this.style.transform='scale(1)'">
+      Sign In
+    </button>
+
+    <p style="color: #e74c3c; margin-top: 12px; text-align: center; font-size: 14px;">{{ error }}</p>
+
+    <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #888;">
+      New user? <a routerLink="/register" style="color: #CA6180; font-weight: 600; text-decoration: none;">Register here</a>
+    </p>
   </div>
-
-  <div style="margin-bottom: 16px;">
-    <input
-      [(ngModel)]="credentials.password"
-      placeholder="Password"
-      type="password"
-      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
-             border-radius: 6px; font-size: 15px; box-sizing: border-box;
-             outline: none;">
-  </div>
-
-  <button
-    (click)="login()"
-    style="width: 100%; padding: 14px; background: #007bff;
-           color: white; border: none; border-radius: 6px;
-           font-size: 16px; font-weight: bold; cursor: pointer;
-           transition: background 0.2s; user-select: none;
-           -webkit-tap-highlight-color: transparent;
-           touch-action: manipulation;"
-    onmouseover="this.style.background='#0056b3'"
-    onmouseout="this.style.background='#007bff'"
-    onmousedown="this.style.background='#004094'"
-    onmouseup="this.style.background='#0056b3'">
-    Login
-  </button>
-
-  <p style="color: red; margin-top: 12px; text-align: center;">{{ error }}</p>
-
-  <p style="text-align: center; margin-top: 16px;">
-    New user? <a routerLink="/register">Register here</a>
-  </p>
 </div>
