@@ -1,30 +1,51 @@
 <div style="max-width: 800px; margin: 50px auto; padding: 20px;">
-  <h2>My Assigned Services</h2>
+  <h2 style="margin-bottom: 24px;">My Assigned Services</h2>
 
   @if (services.length > 0) {
-    <table style="width: 100%; border-collapse: collapse;">
+    <table style="width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden;
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
       <tr style="background: #007bff; color: white;">
-        <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
-        <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
-        <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
-        <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">ID</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">Description</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">Status</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">Actions</th>
       </tr>
       @for (s of services; track s.id) {
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">{{ s.id }}</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">{{ s.description }}</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">{{ s.status }}</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 14px; border: 1px solid #ddd;">{{ s.id }}</td>
+          <td style="padding: 14px; border: 1px solid #ddd;">{{ s.description }}</td>
+          <td style="padding: 14px; border: 1px solid #ddd;">
+            <span style="padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: bold;
+                         background: {{ s.status === 'COMPLETED' ? '#d4edda' : s.status === 'IN_PROGRESS' ? '#fff3cd' : '#cce5ff' }};
+                         color: {{ s.status === 'COMPLETED' ? '#155724' : s.status === 'IN_PROGRESS' ? '#856404' : '#004085' }};">
+              {{ s.status }}
+            </span>
+          </td>
+          <td style="padding: 14px; border: 1px solid #ddd;">
             <button
               (click)="updateStatus(s.id, 'IN_PROGRESS')"
-              style="padding: 6px 12px; background: #ffc107;
-                     color: black; border: none; cursor: pointer; margin-right: 5px;">
+              style="padding: 10px 16px; background: #ffc107; color: black;
+                     border: none; border-radius: 6px; cursor: pointer;
+                     font-weight: bold; margin-right: 8px;
+                     touch-action: manipulation;
+                     -webkit-tap-highlight-color: transparent;"
+              onmouseover="this.style.background='#e0a800'"
+              onmouseout="this.style.background='#ffc107'"
+              onmousedown="this.style.background='#c69500'"
+              onmouseup="this.style.background='#e0a800'">
               Start
             </button>
             <button
               (click)="updateStatus(s.id, 'COMPLETED')"
-              style="padding: 6px 12px; background: #28a745;
-                     color: white; border: none; cursor: pointer;">
+              style="padding: 10px 16px; background: #28a745; color: white;
+                     border: none; border-radius: 6px; cursor: pointer;
+                     font-weight: bold;
+                     touch-action: manipulation;
+                     -webkit-tap-highlight-color: transparent;"
+              onmouseover="this.style.background='#1e7e34'"
+              onmouseout="this.style.background='#28a745'"
+              onmousedown="this.style.background='#155724'"
+              onmouseup="this.style.background='#1e7e34'">
               Complete
             </button>
           </td>
@@ -35,5 +56,5 @@
     <p>No assigned services found.</p>
   }
 
-  <p style="color: green;">{{ message }}</p>
+  <p style="color: green; margin-top: 16px; font-weight: bold;">{{ message }}</p>
 </div>

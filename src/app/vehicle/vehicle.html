@@ -1,28 +1,62 @@
-<div style="max-width: 400px; margin: 100px auto; padding: 20px;">
+<div style="max-width: 500px; margin: 50px auto; padding: 20px;">
   <h2>Add Vehicle</h2>
 
-  <div style="margin-bottom: 10px;">
-    <input
-      [(ngModel)]="vehicle.model"
-      placeholder="Model (e.g. Honda City)"
-      style="width: 100%; padding: 8px; margin-bottom: 10px;">
-  </div>
+  <input
+    [(ngModel)]="vehicle.model"
+    placeholder="Model (e.g. Honda City)"
+    style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box;">
 
-  <div style="margin-bottom: 10px;">
-    <input
-      [(ngModel)]="vehicle.number"
-      placeholder="Number (e.g. TN01AB1234)"
-      style="width: 100%; padding: 8px; margin-bottom: 10px;">
-  </div>
+  <input
+    [(ngModel)]="vehicle.number"
+    placeholder="Number (e.g. TN01AB1234)"
+    style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box;">
 
   <button
     (click)="addVehicle()"
-    style="width: 100%; padding: 10px; background: #007bff;
-           color: white; border: none; cursor: pointer;">
+    style="width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer;">
     Add Vehicle
   </button>
 
-  <p style="color: green;">{{ message }}</p>
+  @if (addedVehicle) {
+    <div style="margin-top: 20px; padding: 20px; border: 2px solid #28a745;
+                border-radius: 8px; background: #f0fff0;">
+      <h3 style="color: #28a745; margin-bottom: 15px;">✅ Vehicle Registered Successfully!</h3>
+
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 8px; font-weight: bold; color: #555;">Owner</td>
+          <td style="padding: 8px;">{{ addedVehicle.owner?.username }}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 8px; font-weight: bold; color: #555;">Vehicle Model</td>
+          <td style="padding: 8px;">{{ addedVehicle.model }}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #ddd;">
+          <td style="padding: 8px; font-weight: bold; color: #555;">Vehicle Number</td>
+          <td style="padding: 8px;">{{ addedVehicle.number }}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; font-weight: bold; color: #555;">Vehicle ID</td>
+          <td style="padding: 8px;">
+            <span style="background: #007bff; color: white; padding: 4px 10px;
+                         border-radius: 4px; font-weight: bold;">
+              {{ addedVehicle.id }}
+            </span>
+            <span style="color: #888; font-size: 12px; margin-left: 8px;">
+              (use this ID to request a service)
+            </span>
+          </td>
+        </tr>
+      </table>
+
+      <a routerLink="/service-request"
+         style="display: block; margin-top: 15px; text-align: center;
+                padding: 10px; background: #28a745; color: white;
+                text-decoration: none; border-radius: 4px;">
+        Request a Service for this Vehicle →
+      </a>
+    </div>
+  }
 
   <br>
   <a routerLink="/service-request">Request a Service</a> |

@@ -1,46 +1,66 @@
-<div style="max-width: 400px; margin: 100px auto; padding: 20px;">
-  <h2>Register</h2>
+<div style="max-width: 400px; margin: 100px auto; padding: 30px;
+            border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+  <h2 style="margin-bottom: 24px; text-align: center;">Register</h2>
 
-  <div style="margin-bottom: 10px;">
+  <div style="margin-bottom: 16px;">
     <input
       [(ngModel)]="user.username"
       placeholder="Username"
-      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
+             border-radius: 6px; font-size: 15px; box-sizing: border-box;
+             outline: none;">
   </div>
 
-  <div style="margin-bottom: 10px;">
+  <div style="margin-bottom: 16px;">
     <input
       [(ngModel)]="user.email"
       placeholder="Email"
       type="email"
-      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
+             border-radius: 6px; font-size: 15px; box-sizing: border-box;
+             outline: none;">
   </div>
 
-  <div style="margin-bottom: 10px;">
+  <div style="margin-bottom: 16px;">
     <input
       [(ngModel)]="user.password"
       placeholder="Password"
       type="password"
-      style="width: 100%; padding: 8px; margin-bottom: 10px;">
+      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
+             border-radius: 6px; font-size: 15px; box-sizing: border-box;
+             outline: none;">
   </div>
 
-  <div style="margin-bottom: 10px;">
+  <div style="margin-bottom: 16px;">
     <select
       [(ngModel)]="user.role"
-      style="width: 100%; padding: 8px;">
+      style="width: 100%; padding: 12px 14px; border: 1px solid #ccc;
+             border-radius: 6px; font-size: 15px; box-sizing: border-box;
+             background: white; cursor: pointer;">
       <option value="OWNER">Vehicle Owner</option>
       <option value="MECHANIC">Mechanic</option>
+      <option value="ADMIN">Admin</option>
     </select>
   </div>
 
   <button
     (click)="register()"
-    style="width: 100%; padding: 10px; background: #28a745;
-           color: white; border: none; cursor: pointer;">
+    style="width: 100%; padding: 14px; background: #28a745;
+           color: white; border: none; border-radius: 6px;
+           font-size: 16px; font-weight: bold; cursor: pointer;
+           transition: background 0.2s; user-select: none;
+           -webkit-tap-highlight-color: transparent;
+           touch-action: manipulation;"
+    onmouseover="this.style.background='#1e7e34'"
+    onmouseout="this.style.background='#28a745'"
+    onmousedown="this.style.background='#155724'"
+    onmouseup="this.style.background='#1e7e34'">
     Register
   </button>
 
-  <p>{{ message }}</p>
+  <p style="text-align: center; margin-top: 12px;">{{ message }}</p>
 
-  <p>Already have an account? <a routerLink="/login">Login here</a></p>
+  <p style="text-align: center; margin-top: 8px;">
+    Already have an account? <a routerLink="/login">Login here</a>
+  </p>
 </div>

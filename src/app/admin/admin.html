@@ -1,32 +1,48 @@
 <div style="max-width: 800px; margin: 50px auto; padding: 20px;">
-  <h2>Admin Dashboard</h2>
+  <h2 style="margin-bottom: 24px;">Admin Dashboard</h2>
 
-  <div style="margin-bottom: 20px;">
+  <div style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
     <input
       [(ngModel)]="mechanicId"
       placeholder="Enter Mechanic ID to assign"
       type="number"
-      style="width: 300px; padding: 8px;">
+      style="padding: 12px 14px; border: 1px solid #ccc;
+             border-radius: 6px; font-size: 15px; width: 280px;
+             box-sizing: border-box; outline: none;">
   </div>
 
   @if (requests.length > 0) {
-    <table style="width: 100%; border-collapse: collapse;">
+    <table style="width: 100%; border-collapse: collapse; border-radius: 8px;
+                  overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
       <tr style="background: #007bff; color: white;">
-        <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
-        <th style="padding: 10px; border: 1px solid #ddd;">Description</th>
-        <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
-        <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">ID</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">Description</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">Status</th>
+        <th style="padding: 14px; border: 1px solid #ddd; text-align: left;">Action</th>
       </tr>
       @for (r of requests; track r.id) {
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ddd;">{{ r.id }}</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">{{ r.description }}</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">{{ r.status }}</td>
-          <td style="padding: 10px; border: 1px solid #ddd;">
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 14px; border: 1px solid #ddd;">{{ r.id }}</td>
+          <td style="padding: 14px; border: 1px solid #ddd;">{{ r.description }}</td>
+          <td style="padding: 14px; border: 1px solid #ddd;">
+            <span style="padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: bold;
+                         background: {{ r.status === 'COMPLETED' ? '#d4edda' : r.status === 'IN_PROGRESS' ? '#fff3cd' : r.status === 'ASSIGNED' ? '#e2d9f3' : '#cce5ff' }};
+                         color: {{ r.status === 'COMPLETED' ? '#155724' : r.status === 'IN_PROGRESS' ? '#856404' : r.status === 'ASSIGNED' ? '#4a235a' : '#004085' }};">
+              {{ r.status }}
+            </span>
+          </td>
+          <td style="padding: 14px; border: 1px solid #ddd;">
             <button
               (click)="assignMechanic(r.id)"
-              style="padding: 6px 12px; background: #28a745;
-                     color: white; border: none; cursor: pointer;">
+              style="padding: 10px 18px; background: #28a745;
+                     color: white; border: none; border-radius: 6px;
+                     font-size: 14px; font-weight: bold; cursor: pointer;
+                     touch-action: manipulation;
+                     -webkit-tap-highlight-color: transparent;"
+              onmouseover="this.style.background='#1e7e34'"
+              onmouseout="this.style.background='#28a745'"
+              onmousedown="this.style.background='#155724'"
+              onmouseup="this.style.background='#1e7e34'">
               Assign
             </button>
           </td>
@@ -37,5 +53,5 @@
     <p>No service requests found.</p>
   }
 
-  <p style="color: green;">{{ message }}</p>
+  <p style="color: green; margin-top: 16px; font-weight: bold;">{{ message }}</p>
 </div>
