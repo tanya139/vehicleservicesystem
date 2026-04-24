@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../services/http';
 
@@ -15,15 +15,10 @@ export class AdminComponent implements OnInit {
   mechanicId: number = 0;
   message = '';
 
-  constructor(
-    private http: HttpService,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  constructor(private http: HttpService) {}
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.loadRequests();
-    }
+    this.loadRequests();
   }
 
   loadRequests() {

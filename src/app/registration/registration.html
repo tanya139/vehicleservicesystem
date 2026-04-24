@@ -28,8 +28,13 @@
     <select
       [(ngModel)]="user.role"
       style="width: 100%; padding: 8px;">
+
+      <!-- ✅ Added Admin option -->
+      <option value="ADMIN">Admin</option>
+
       <option value="OWNER">Vehicle Owner</option>
       <option value="MECHANIC">Mechanic</option>
+
     </select>
   </div>
 
