@@ -1,46 +1,46 @@
 <div style="max-width: 900px; margin: 60px auto; padding: 20px;">
-  <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 4px 20px rgba(202,97,128,0.1); border-top: 4px solid #CA6180;">
+  <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 4px 20px rgba(137,138,196,0.15); border-top: 4px solid #898AC4;">
 
-    <h2 style="margin: 0 0 6px; color: #CA6180; font-size: 22px; font-weight: 700;">Admin Dashboard</h2>
+    <h2 style="margin: 0 0 6px; color: #898AC4; font-size: 22px; font-weight: 700;">Admin Dashboard</h2>
     <p style="margin: 0 0 24px; color: #888; font-size: 14px;">Manage and assign service requests</p>
 
-    <div style="background: #FFF5F8; border: 1.5px solid #FCB7C7; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
-      <label style="font-size: 13px; font-weight: 600; color: #CA6180; white-space: nowrap;">Mechanic ID</label>
+    <div style="background: #F5F6FF; border: 1.5px solid #C0C9EE; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+      <label style="font-size: 13px; font-weight: 600; color: #898AC4; white-space: nowrap;">Mechanic ID</label>
       <input
         [(ngModel)]="mechanicId"
         placeholder="Enter Mechanic ID to assign"
         type="number"
-        style="flex: 1; padding: 10px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; outline: none; background: white;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="flex: 1; padding: 10px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; outline: none; background: white;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     @if (requests.length > 0) {
       <table style="width: 100%; border-collapse: collapse;">
-        <tr style="background: #CA6180; color: white;">
+        <tr style="background: #898AC4; color: white;">
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">ID</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Description</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Status</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Action</th>
         </tr>
         @for (r of requests; track r.id) {
-          <tr style="border-bottom: 1px solid #FCB7C7;">
+          <tr style="border-bottom: 1px solid #C0C9EE;">
             <td style="padding: 13px 16px; font-size: 14px; color: #555;">{{ r.id }}</td>
             <td style="padding: 13px 16px; font-size: 14px; color: #333;">{{ r.description }}</td>
             <td style="padding: 13px 16px;">
               <span style="padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;
-                background: {{ r.status === 'COMPLETED' ? '#9ED3DC' : r.status === 'IN_PROGRESS' ? '#FEFD99' : r.status === 'ASSIGNED' ? '#FCB7C7' : '#f0f0f0' }};
-                color: {{ r.status === 'COMPLETED' ? '#085041' : r.status === 'IN_PROGRESS' ? '#856404' : r.status === 'ASSIGNED' ? '#CA6180' : '#888' }};">
+                background: {{ r.status === 'COMPLETED' ? '#d4edda' : r.status === 'IN_PROGRESS' ? '#fff3cd' : r.status === 'ASSIGNED' ? '#C0C9EE' : '#f0f0f0' }};
+                color: {{ r.status === 'COMPLETED' ? '#155724' : r.status === 'IN_PROGRESS' ? '#856404' : r.status === 'ASSIGNED' ? '#898AC4' : '#888' }};">
                 {{ r.status }}
               </span>
             </td>
             <td style="padding: 13px 16px;">
               <button
                 (click)="assignMechanic(r.id)"
-                style="padding: 9px 18px; background: #CA6180; color: white;
+                style="padding: 9px 18px; background: #898AC4; color: white;
                        border: none; border-radius: 8px; font-size: 13px;
                        font-weight: 700; cursor: pointer; touch-action: manipulation;"
-                onmouseover="this.style.background='#b5506e'"
-                onmouseout="this.style.background='#CA6180'"
+                onmouseover="this.style.background='#7071b0'"
+                onmouseout="this.style.background='#898AC4'"
                 onmousedown="this.style.transform='scale(0.97)'"
                 onmouseup="this.style.transform='scale(1)'">
                 Assign
@@ -56,6 +56,6 @@
       </div>
     }
 
-    <p style="color: #0F6E56; margin-top: 16px; font-weight: 600; font-size: 14px;">{{ message }}</p>
+    <p style="color: #28a745; margin-top: 16px; font-weight: 600; font-size: 14px;">{{ message }}</p>
   </div>
 </div>

@@ -1,31 +1,31 @@
 <div style="max-width: 520px; margin: 60px auto; padding: 20px;">
-  <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(202,97,128,0.1); border-top: 4px solid #CA6180;">
+  <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(137,138,196,0.15); border-top: 4px solid #898AC4;">
 
-    <h2 style="margin: 0 0 8px; color: #CA6180; font-size: 22px; font-weight: 700;">Add Vehicle</h2>
+    <h2 style="margin: 0 0 8px; color: #898AC4; font-size: 22px; font-weight: 700;">Add Vehicle</h2>
     <p style="margin: 0 0 28px; color: #888; font-size: 14px;">Register your vehicle to request services</p>
 
     <div style="margin-bottom: 16px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Vehicle Model</label>
       <input [(ngModel)]="vehicle.model" placeholder="e.g. Honda City"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <div style="margin-bottom: 24px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Registration Number</label>
       <input [(ngModel)]="vehicle.number" placeholder="e.g. TN01AB1234"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <button
       (click)="addVehicle()"
-      style="width: 100%; padding: 14px; background: #CA6180;
+      style="width: 100%; padding: 14px; background: #898AC4;
              color: white; border: none; border-radius: 8px;
              font-size: 16px; font-weight: 700; cursor: pointer;
              touch-action: manipulation; letter-spacing: 0.5px;"
-      onmouseover="this.style.background='#b5506e'"
-      onmouseout="this.style.background='#CA6180'"
+      onmouseover="this.style.background='#7071b0'"
+      onmouseout="this.style.background='#898AC4'"
       onmousedown="this.style.transform='scale(0.98)'"
       onmouseup="this.style.transform='scale(1)'">
       Register Vehicle
@@ -33,30 +33,30 @@
   </div>
 
   @if (addedVehicle) {
-    <div style="margin-top: 24px; padding: 28px; border: 2px solid #9ED3DC;
+    <div style="margin-top: 24px; padding: 28px; border: 2px solid #A2AADB;
                 border-radius: 16px; background: white;">
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <div style="width: 36px; height: 36px; background: #9ED3DC; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">✓</div>
-        <h3 style="margin: 0; color: #0F6E56; font-size: 16px; font-weight: 700;">Vehicle Registered Successfully!</h3>
+        <div style="width: 36px; height: 36px; background: #A2AADB; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">✓</div>
+        <h3 style="margin: 0; color: #898AC4; font-size: 16px; font-weight: 700;">Vehicle Registered Successfully!</h3>
       </div>
 
       <table style="width: 100%; border-collapse: collapse;">
-        <tr style="border-bottom: 1px solid #FCB7C7;">
+        <tr style="border-bottom: 1px solid #C0C9EE;">
           <td style="padding: 10px 8px; font-size: 13px; font-weight: 600; color: #888; width: 40%;">Owner</td>
           <td style="padding: 10px 8px; font-size: 14px; color: #333;">{{ addedVehicle.owner?.username }}</td>
         </tr>
-        <tr style="border-bottom: 1px solid #FCB7C7;">
+        <tr style="border-bottom: 1px solid #C0C9EE;">
           <td style="padding: 10px 8px; font-size: 13px; font-weight: 600; color: #888;">Model</td>
           <td style="padding: 10px 8px; font-size: 14px; color: #333;">{{ addedVehicle.model }}</td>
         </tr>
-        <tr style="border-bottom: 1px solid #FCB7C7;">
+        <tr style="border-bottom: 1px solid #C0C9EE;">
           <td style="padding: 10px 8px; font-size: 13px; font-weight: 600; color: #888;">Reg. Number</td>
           <td style="padding: 10px 8px; font-size: 14px; color: #333;">{{ addedVehicle.number }}</td>
         </tr>
         <tr>
           <td style="padding: 10px 8px; font-size: 13px; font-weight: 600; color: #888;">Vehicle ID</td>
           <td style="padding: 10px 8px;">
-            <span style="background: #CA6180; color: white; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 14px;">
+            <span style="background: #898AC4; color: white; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 14px;">
               {{ addedVehicle.id }}
             </span>
             <span style="color: #888; font-size: 12px; margin-left: 8px;">use this to request a service</span>
@@ -66,7 +66,7 @@
 
       <a routerLink="/service-request"
          style="display: block; margin-top: 20px; text-align: center;
-                padding: 13px; background: #9ED3DC; color: #085041;
+                padding: 13px; background: #A2AADB; color: white;
                 text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 15px;">
         Request a Service for this Vehicle →
       </a>
@@ -74,8 +74,8 @@
   }
 
   <div style="margin-top: 20px; text-align: center;">
-    <a routerLink="/service-request" style="color: #CA6180; font-weight: 600; text-decoration: none; font-size: 14px;">Request a Service</a>
+    <a routerLink="/service-request" style="color: #898AC4; font-weight: 600; text-decoration: none; font-size: 14px;">Request a Service</a>
     <span style="color: #ccc; margin: 0 10px;">|</span>
-    <a routerLink="/services" style="color: #CA6180; font-weight: 600; text-decoration: none; font-size: 14px;">View Service History</a>
+    <a routerLink="/services" style="color: #898AC4; font-weight: 600; text-decoration: none; font-size: 14px;">View Service History</a>
   </div>
 </div>

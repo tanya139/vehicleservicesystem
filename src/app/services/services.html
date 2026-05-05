@@ -1,24 +1,24 @@
 <div style="max-width: 800px; margin: 60px auto; padding: 20px;">
-  <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 4px 20px rgba(202,97,128,0.1); border-top: 4px solid #CA6180;">
+  <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 4px 20px rgba(137,138,196,0.15); border-top: 4px solid #898AC4;">
 
-    <h2 style="margin: 0 0 6px; color: #CA6180; font-size: 22px; font-weight: 700;">Service History</h2>
+    <h2 style="margin: 0 0 6px; color: #898AC4; font-size: 22px; font-weight: 700;">Service History</h2>
     <p style="margin: 0 0 24px; color: #888; font-size: 14px;">All your vehicle service requests</p>
 
     @if (serviceHistory.length > 0) {
       <table style="width: 100%; border-collapse: collapse;">
-        <tr style="background: #CA6180; color: white;">
-          <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600; border-radius: 0;">ID</th>
+        <tr style="background: #898AC4; color: white;">
+          <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">ID</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Description</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Status</th>
         </tr>
         @for (s of serviceHistory; track s.id) {
-          <tr style="border-bottom: 1px solid #FCB7C7;">
+          <tr style="border-bottom: 1px solid #C0C9EE;">
             <td style="padding: 13px 16px; font-size: 14px; color: #555;">{{ s.id }}</td>
             <td style="padding: 13px 16px; font-size: 14px; color: #333;">{{ s.description }}</td>
             <td style="padding: 13px 16px;">
               <span style="padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;
-                background: {{ s.status === 'COMPLETED' ? '#9ED3DC' : s.status === 'IN_PROGRESS' ? '#FEFD99' : s.status === 'ASSIGNED' ? '#FCB7C7' : '#f0f0f0' }};
-                color: {{ s.status === 'COMPLETED' ? '#085041' : s.status === 'IN_PROGRESS' ? '#856404' : s.status === 'ASSIGNED' ? '#CA6180' : '#888' }};">
+                background: {{ s.status === 'COMPLETED' ? '#d4edda' : s.status === 'IN_PROGRESS' ? '#fff3cd' : s.status === 'ASSIGNED' ? '#C0C9EE' : '#f0f0f0' }};
+                color: {{ s.status === 'COMPLETED' ? '#155724' : s.status === 'IN_PROGRESS' ? '#856404' : s.status === 'ASSIGNED' ? '#898AC4' : '#888' }};">
                 {{ s.status }}
               </span>
             </td>
@@ -34,12 +34,12 @@
 
     <div style="margin-top: 24px; display: flex; gap: 12px;">
       <a routerLink="/vehicle"
-        style="padding: 10px 20px; background: #9ED3DC; color: #085041;
+        style="padding: 10px 20px; background: #C0C9EE; color: #898AC4;
                text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
         ← My Vehicles
       </a>
       <a routerLink="/service-request"
-        style="padding: 10px 20px; background: #CA6180; color: white;
+        style="padding: 10px 20px; background: #898AC4; color: white;
                text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px;">
         + Request Service
       </a>

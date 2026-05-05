@@ -1,47 +1,47 @@
 <div style="max-width: 900px; margin: 60px auto; padding: 20px;">
-  <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 4px 20px rgba(202,97,128,0.1); border-top: 4px solid #9ED3DC;">
+  <div style="background: white; padding: 32px; border-radius: 16px; box-shadow: 0 4px 20px rgba(137,138,196,0.15); border-top: 4px solid #A2AADB;">
 
-    <h2 style="margin: 0 0 6px; color: #CA6180; font-size: 22px; font-weight: 700;">My Assigned Services</h2>
+    <h2 style="margin: 0 0 6px; color: #898AC4; font-size: 22px; font-weight: 700;">My Assigned Services</h2>
     <p style="margin: 0 0 24px; color: #888; font-size: 14px;">Update the status of your assigned jobs</p>
 
     @if (services.length > 0) {
       <table style="width: 100%; border-collapse: collapse;">
-        <tr style="background: #9ED3DC; color: #085041;">
+        <tr style="background: #898AC4; color: white;">
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">ID</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Description</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Status</th>
           <th style="padding: 13px 16px; text-align: left; font-size: 13px; font-weight: 600;">Actions</th>
         </tr>
         @for (s of services; track s.id) {
-          <tr style="border-bottom: 1px solid #FCB7C7;">
+          <tr style="border-bottom: 1px solid #C0C9EE;">
             <td style="padding: 13px 16px; font-size: 14px; color: #555;">{{ s.id }}</td>
             <td style="padding: 13px 16px; font-size: 14px; color: #333;">{{ s.description }}</td>
             <td style="padding: 13px 16px;">
               <span style="padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;
-                background: {{ s.status === 'COMPLETED' ? '#9ED3DC' : s.status === 'IN_PROGRESS' ? '#FEFD99' : '#FCB7C7' }};
-                color: {{ s.status === 'COMPLETED' ? '#085041' : s.status === 'IN_PROGRESS' ? '#856404' : '#CA6180' }};">
+                background: {{ s.status === 'COMPLETED' ? '#d4edda' : s.status === 'IN_PROGRESS' ? '#fff3cd' : '#C0C9EE' }};
+                color: {{ s.status === 'COMPLETED' ? '#155724' : s.status === 'IN_PROGRESS' ? '#856404' : '#898AC4' }};">
                 {{ s.status }}
               </span>
             </td>
             <td style="padding: 13px 16px; display: flex; gap: 8px; flex-wrap: wrap;">
               <button
                 (click)="updateStatus(s.id, 'IN_PROGRESS')"
-                style="padding: 9px 16px; background: #FEFD99; color: #856404;
+                style="padding: 9px 16px; background: #fff3cd; color: #856404;
                        border: none; border-radius: 8px; font-size: 13px;
                        font-weight: 700; cursor: pointer; touch-action: manipulation;"
-                onmouseover="this.style.background='#f5eb00'"
-                onmouseout="this.style.background='#FEFD99'"
+                onmouseover="this.style.background='#ffe69c'"
+                onmouseout="this.style.background='#fff3cd'"
                 onmousedown="this.style.transform='scale(0.97)'"
                 onmouseup="this.style.transform='scale(1)'">
                 Start
               </button>
               <button
                 (click)="updateStatus(s.id, 'COMPLETED')"
-                style="padding: 9px 16px; background: #9ED3DC; color: #085041;
+                style="padding: 9px 16px; background: #A2AADB; color: white;
                        border: none; border-radius: 8px; font-size: 13px;
                        font-weight: 700; cursor: pointer; touch-action: manipulation;"
-                onmouseover="this.style.background='#7cc4cf'"
-                onmouseout="this.style.background='#9ED3DC'"
+                onmouseover="this.style.background='#898AC4'"
+                onmouseout="this.style.background='#A2AADB'"
                 onmousedown="this.style.transform='scale(0.97)'"
                 onmouseup="this.style.transform='scale(1)'">
                 Complete
@@ -57,6 +57,6 @@
       </div>
     }
 
-    <p style="color: #0F6E56; margin-top: 16px; font-weight: 600; font-size: 14px;">{{ message }}</p>
+    <p style="color: #28a745; margin-top: 16px; font-weight: 600; font-size: 14px;">{{ message }}</p>
   </div>
 </div>

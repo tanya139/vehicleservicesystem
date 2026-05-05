@@ -1,43 +1,43 @@
 <div style="max-width: 520px; margin: 60px auto; padding: 20px;">
-  <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(202,97,128,0.1); border-top: 4px solid #9ED3DC;">
+  <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(137,138,196,0.15); border-top: 4px solid #A2AADB;">
 
-    <h2 style="margin: 0 0 8px; color: #CA6180; font-size: 22px; font-weight: 700;">Request Service</h2>
+    <h2 style="margin: 0 0 8px; color: #898AC4; font-size: 22px; font-weight: 700;">Request Service</h2>
     <p style="margin: 0 0 28px; color: #888; font-size: 14px;">Tell us what your vehicle needs</p>
 
     <div style="margin-bottom: 16px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Vehicle ID</label>
       <input [(ngModel)]="vehicleId" placeholder="Enter your Vehicle ID" type="number"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <div style="margin-bottom: 24px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Describe the Issue</label>
       <textarea [(ngModel)]="request.description" placeholder="e.g. Engine making noise when starting..."
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; height: 130px; resize: vertical; outline: none; font-family: inherit;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; height: 130px; resize: vertical; outline: none; font-family: inherit;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
       </textarea>
     </div>
 
     <button
       (click)="submitRequest()"
-      style="width: 100%; padding: 14px; background: #CA6180;
+      style="width: 100%; padding: 14px; background: #898AC4;
              color: white; border: none; border-radius: 8px;
              font-size: 16px; font-weight: 700; cursor: pointer;
              touch-action: manipulation; letter-spacing: 0.5px;"
-      onmouseover="this.style.background='#b5506e'"
-      onmouseout="this.style.background='#CA6180'"
+      onmouseover="this.style.background='#7071b0'"
+      onmouseout="this.style.background='#898AC4'"
       onmousedown="this.style.transform='scale(0.98)'"
       onmouseup="this.style.transform='scale(1)'">
       Submit Request
     </button>
 
-    <p style="color: #0F6E56; text-align: center; margin-top: 14px; font-weight: 600; font-size: 14px;">{{ message }}</p>
+    <p style="color: #28a745; text-align: center; margin-top: 14px; font-weight: 600; font-size: 14px;">{{ message }}</p>
 
     <div style="margin-top: 20px; text-align: center;">
-      <a routerLink="/vehicle" style="color: #CA6180; font-weight: 600; text-decoration: none; font-size: 14px;">← Back to Vehicles</a>
+      <a routerLink="/vehicle" style="color: #898AC4; font-weight: 600; text-decoration: none; font-size: 14px;">← Back to Vehicles</a>
       <span style="color: #ccc; margin: 0 10px;">|</span>
-      <a routerLink="/services" style="color: #CA6180; font-weight: 600; text-decoration: none; font-size: 14px;">View History</a>
+      <a routerLink="/services" style="color: #898AC4; font-weight: 600; text-decoration: none; font-size: 14px;">View History</a>
     </div>
   </div>
 </div>

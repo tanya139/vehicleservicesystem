@@ -1,40 +1,40 @@
-<div style="min-height: 100vh; background: #FCB7C7; display: flex; align-items: center; justify-content: center;">
-  <div style="background: white; max-width: 420px; width: 100%; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px rgba(202,97,128,0.15);">
+<div style="min-height: 100vh; background: #FFF2E0; display: flex; align-items: center; justify-content: center;">
+  <div style="background: white; max-width: 420px; width: 100%; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px rgba(137,138,196,0.2);">
 
     <div style="text-align: center; margin-bottom: 32px;">
-      <div style="width: 56px; height: 56px; background: #9ED3DC; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 56px; height: 56px; background: #A2AADB; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
         <span style="font-size: 24px;">👤</span>
       </div>
-      <h2 style="margin: 0; color: #CA6180; font-size: 24px; font-weight: 700;">Create Account</h2>
+      <h2 style="margin: 0; color: #898AC4; font-size: 24px; font-weight: 700;">Create Account</h2>
       <p style="margin: 6px 0 0; color: #888; font-size: 14px;">Join VehicleServ today</p>
     </div>
 
     <div style="margin-bottom: 16px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Username</label>
       <input [(ngModel)]="user.username" placeholder="Choose a username"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <div style="margin-bottom: 16px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Email</label>
       <input [(ngModel)]="user.email" placeholder="Your email address" type="email"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <div style="margin-bottom: 16px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Password</label>
       <input [(ngModel)]="user.password" placeholder="Create a password" type="password"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <div style="margin-bottom: 24px;">
       <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px;">Role</label>
       <select [(ngModel)]="user.role"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7; border-radius: 8px; font-size: 15px; box-sizing: border-box; background: white; cursor: pointer; outline: none;"
-        onfocus="this.style.borderColor='#CA6180'" onblur="this.style.borderColor='#FCB7C7'">
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE; border-radius: 8px; font-size: 15px; box-sizing: border-box; background: white; cursor: pointer; outline: none;"
+        onfocus="this.style.borderColor='#898AC4'" onblur="this.style.borderColor='#C0C9EE'">
         <option value="OWNER">Vehicle Owner</option>
         <option value="MECHANIC">Mechanic</option>
         <option value="ADMIN">Admin</option>
@@ -43,12 +43,12 @@
 
     <button
       (click)="register()"
-      style="width: 100%; padding: 14px; background: #CA6180;
+      style="width: 100%; padding: 14px; background: #898AC4;
              color: white; border: none; border-radius: 8px;
              font-size: 16px; font-weight: 700; cursor: pointer;
              touch-action: manipulation; letter-spacing: 0.5px;"
-      onmouseover="this.style.background='#b5506e'"
-      onmouseout="this.style.background='#CA6180'"
+      onmouseover="this.style.background='#7071b0'"
+      onmouseout="this.style.background='#898AC4'"
       onmousedown="this.style.transform='scale(0.98)'"
       onmouseup="this.style.transform='scale(1)'">
       Create Account
@@ -56,7 +56,7 @@
 
     <p style="text-align: center; margin-top: 12px; font-size: 14px; color: #555;">{{ message }}</p>
     <p style="text-align: center; margin-top: 8px; font-size: 14px; color: #888;">
-      Already have an account? <a routerLink="/login" style="color: #CA6180; font-weight: 600; text-decoration: none;">Sign in</a>
+      Already have an account? <a routerLink="/login" style="color: #898AC4; font-weight: 600; text-decoration: none;">Sign in</a>
     </p>
   </div>
 </div>

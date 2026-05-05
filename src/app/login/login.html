@@ -1,11 +1,11 @@
-<div style="min-height: 100vh; background: #FCB7C7; display: flex; align-items: center; justify-content: center;">
-  <div style="background: white; max-width: 420px; width: 100%; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px rgba(202,97,128,0.15);">
+<div style="min-height: 100vh; background: #FFF2E0; display: flex; align-items: center; justify-content: center;">
+  <div style="background: white; max-width: 420px; width: 100%; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px rgba(137,138,196,0.2);">
 
     <div style="text-align: center; margin-bottom: 32px;">
-      <div style="width: 56px; height: 56px; background: #CA6180; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 56px; height: 56px; background: #898AC4; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
         <span style="font-size: 24px;">🔧</span>
       </div>
-      <h2 style="margin: 0; color: #CA6180; font-size: 24px; font-weight: 700;">Welcome Back</h2>
+      <h2 style="margin: 0; color: #898AC4; font-size: 24px; font-weight: 700;">Welcome Back</h2>
       <p style="margin: 6px 0 0; color: #888; font-size: 14px;">Sign in to your account</p>
     </div>
 
@@ -14,11 +14,11 @@
       <input
         [(ngModel)]="credentials.username"
         placeholder="Enter your username"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7;
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE;
                border-radius: 8px; font-size: 15px; box-sizing: border-box;
                outline: none; transition: border 0.2s;"
-        onfocus="this.style.borderColor='#CA6180'"
-        onblur="this.style.borderColor='#FCB7C7'">
+        onfocus="this.style.borderColor='#898AC4'"
+        onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <div style="margin-bottom: 24px;">
@@ -27,21 +27,21 @@
         [(ngModel)]="credentials.password"
         placeholder="Enter your password"
         type="password"
-        style="width: 100%; padding: 13px 14px; border: 1.5px solid #FCB7C7;
+        style="width: 100%; padding: 13px 14px; border: 1.5px solid #C0C9EE;
                border-radius: 8px; font-size: 15px; box-sizing: border-box;
                outline: none; transition: border 0.2s;"
-        onfocus="this.style.borderColor='#CA6180'"
-        onblur="this.style.borderColor='#FCB7C7'">
+        onfocus="this.style.borderColor='#898AC4'"
+        onblur="this.style.borderColor='#C0C9EE'">
     </div>
 
     <button
       (click)="login()"
-      style="width: 100%; padding: 14px; background: #CA6180;
+      style="width: 100%; padding: 14px; background: #898AC4;
              color: white; border: none; border-radius: 8px;
              font-size: 16px; font-weight: 700; cursor: pointer;
              touch-action: manipulation; letter-spacing: 0.5px;"
-      onmouseover="this.style.background='#b5506e'"
-      onmouseout="this.style.background='#CA6180'"
+      onmouseover="this.style.background='#7071b0'"
+      onmouseout="this.style.background='#898AC4'"
       onmousedown="this.style.transform='scale(0.98)'"
       onmouseup="this.style.transform='scale(1)'">
       Sign In
@@ -50,7 +50,7 @@
     <p style="color: #e74c3c; margin-top: 12px; text-align: center; font-size: 14px;">{{ error }}</p>
 
     <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #888;">
-      New user? <a routerLink="/register" style="color: #CA6180; font-weight: 600; text-decoration: none;">Register here</a>
+      New user? <a routerLink="/register" style="color: #898AC4; font-weight: 600; text-decoration: none;">Register here</a>
     </p>
   </div>
 </div>
